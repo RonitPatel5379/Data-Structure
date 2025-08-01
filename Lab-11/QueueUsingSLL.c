@@ -9,7 +9,7 @@ struct Node
 
 struct Node* head = NULL;
 
-struct Node* push(struct Node* head,int data) {
+struct Node* enqueue(struct Node* head,int data) {
   struct Node* newNode = (struct Node *)malloc(sizeof(struct Node));
   if(head == NULL){
     newNode->data = data;
@@ -28,7 +28,7 @@ struct Node* push(struct Node* head,int data) {
   return head;
 }
 
-struct Node* pop(struct Node *head)
+struct Node* dequeue(struct Node *head)
 {
   // struct Node* newNode = (struct Node *)malloc(sizeof(struct Node));
   if (head == NULL)
@@ -57,11 +57,11 @@ void display(struct Node *head)
 void main()
 {
 
-  head = push(head,10);
-  head = push(head,20);
-  head = push(head,30);
-  head = push(head,40);
-  head = pop(head);
+  head = enqueue(head,10);
+  head = enqueue(head,20);
+  head = enqueue(head,30);
+  head = enqueue(head,40);
+  head = dequeue(head);
   printf("Queue Using SLL:");
   display(head);
 }
