@@ -1,18 +1,24 @@
-#include<stdio.h>
+#include <stdio.h>
+#include <math.h>
+
 void main() {
-  int n,rem,res=0;
-  printf("Enter a number :");
-  scanf("%d",&n);
-  int num=n;
-  while(num!=0) {
-    rem = num%10;
-    res = res + rem*rem*rem*rem;
-    num=num/10;
-  }
-  if(res==n) {
-    printf("Armstrong Number");
-  }
-  else {
-    printf("Not Armstrong Number");
-  }
+    int num, originalNum, remainder, n = 0;
+    float result = 0.0;
+    printf("Enter a number: ");
+    scanf("%d", &num);
+    originalNum = num;
+    while (originalNum != 0) {
+        originalNum /= 10;
+        n++;
+    }
+    originalNum = num;
+    while (originalNum != 0) {
+        remainder = originalNum % 10;
+        result += pow(remainder, n);
+        originalNum /= 10;
+    }
+    if ((int)result == num)
+        printf("Armstrong Number.");
+    else
+        printf("Not Armstrong Number.");
 }
